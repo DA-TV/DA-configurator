@@ -1,0 +1,376 @@
+:root{--panel:360px;--red:#ed302c;--sheet:46dvh;--safe-top:max(10px,env(safe-area-inset-top));--safe-right:max(10px,env(safe-area-inset-right));--safe-bottom:max(10px,env(safe-area-inset-bottom))}*{box-sizing:border-box}html,body,#app{margin:0;width:100%;height:100%;overflow:hidden;font-family:Arial,sans-serif;color:#666}button,input,textarea{font:inherit}button{cursor:pointer}#stage{position:absolute;inset:0 var(--panel) 0 0;background:#c8c8c8;transition:inset .28s ease}#api-frame{display:block;width:100%;height:100%;border:0;touch-action:auto}.background{position:absolute;top:var(--safe-top);left:18px;z-index:10;display:grid;gap:8px;font-weight:600}.background label{padding:4px 8px;background:#ffffff70;border-radius:4px}.background input{width:64px;height:64px;padding:0;border:0;border-radius:50%;overflow:hidden}.background input::-webkit-color-swatch-wrapper{padding:0}.background input::-webkit-color-swatch{border:0;border-radius:50%}.tools{position:fixed;top:var(--safe-top);right:calc(var(--panel) + var(--safe-right));z-index:50;display:flex;gap:8px}.tools button{width:44px;height:44px;border:0;border-radius:5px;background:#5556;color:#fff;font-size:29px}.tools button[hidden]{display:none}#status{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);padding:10px 14px;background:#fffddd;border-radius:6px}#menu{position:absolute;right:0;top:0;z-index:40;width:var(--panel);height:100%;display:flex;flex-direction:column;background:#fff;box-shadow:-3px 0 12px #0002;transition:transform .28s ease;will-change:transform}#menu.closed{transform:translateX(100%)}#menu header{position:relative;padding:10px 42px 10px 16px;background:#f4f4f4;border-bottom:1px solid #ddd}#closeMenu{position:absolute;right:10px;top:4px;border:0;background:none;font-size:29px;color:#777}nav{font-size:26px}.product{border:0;background:none;color:#777;padding:0}.product.active{font-weight:700;color:#555}.grabber{display:none}.config{display:grid;grid-template-columns:1fr 1fr;flex:1;min-height:0;overflow:auto}.config>section{text-align:center;border-right:1px solid #ddd;padding:8px}.config h2{font-size:14px}.swatch-wrap{margin:13px 0}.swatch,.custom button{width:58px;height:58px;border-radius:50%;border:1px solid #aaa;box-shadow:1px 3px 6px #0002}.swatch.active{outline:3px solid #999;outline-offset:2px}.swatch-label{font-size:12px;line-height:1.15;margin-top:4px}.custom{display:grid;justify-items:center;gap:6px;font-size:11px;margin:18px 0}.custom input{width:135px;max-width:100%;border:0;border-radius:12px;background:#eee;text-align:center;padding:5px}.custom button{background:transparent}.actions{position:fixed;right:16px;bottom:var(--safe-bottom);z-index:60;width:calc(var(--panel) - 32px);display:flex;gap:12px}.actions #order{flex:1;border:0;border-radius:24px;background:var(--red);color:#fff;padding:11px;font-size:19px}.actions #info{width:36px;height:36px;border-radius:50%;border:1px solid #ccc;background:#fff4}dialog{width:min(760px,92vw);max-height:90dvh;border:0;border-radius:16px;padding:35px;overflow:auto}dialog::backdrop{background:#eee9;backdrop-filter:blur(3px)}.dialogClose{position:absolute;right:12px;top:8px;border:0;background:none;font-size:28px}.formGrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}dialog label{display:grid;gap:6px;font-size:12px}dialog input,dialog textarea{padding:11px;border:1px solid #ccc;border-radius:5px}dialog textarea{height:120px}.send{width:100%;margin-top:20px;padding:14px;border:0;background:var(--red);color:#fff;font-weight:700}
+@media(max-width:900px){:root{--panel:min(420px,92vw)}#stage{right:0}.tools{right:var(--safe-right)}#fullscreen{display:none}.actions{left:12px;right:12px;width:auto}}
+@media(max-width:600px){:root{--sheet:min(48dvh,440px)}#stage{inset:0 0 var(--sheet) 0}#app.menu-closed #stage{inset:0}.background label{display:none}.background input{width:52px;height:52px}#menu{top:auto;bottom:0;left:0;width:100vw;height:var(--sheet);max-height:50dvh;border-radius:18px 18px 0 0;box-shadow:0 -6px 20px #0003}#menu.closed{transform:translateY(100%)}#menu header{border-radius:18px 18px 0 0;padding-top:15px}.grabber{display:block;position:absolute;top:5px;left:50%;width:42px;height:4px;transform:translateX(-50%);border-radius:4px;background:#bbb}.config{grid-template-columns:1fr;grid-template-rows:1fr 1fr;overflow:hidden;padding-bottom:62px}.config>section{display:grid;grid-template-columns:52px minmax(0,1fr) 96px;align-items:center;min-height:0;padding:4px;border-right:0;border-bottom:1px solid #ddd;overflow:hidden}.config h2{margin:0;font-size:11px}.swatches{display:flex;align-items:flex-start;gap:6px;width:100%;height:100%;min-width:0;padding:4px;overflow-x:auto;overflow-y:hidden;touch-action:pan-x;overscroll-behavior-x:contain;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}.swatch-wrap{display:grid;grid-template-rows:44px auto;justify-items:center;flex:0 0 58px;width:58px;margin:0;scroll-snap-align:start}.swatch,.custom button{width:40px;height:40px}.swatch-label{font-size:8px;line-height:1.05;text-align:center}.custom{height:100%;margin:0;padding:3px;border-left:1px solid #ddd;align-content:center}.custom strong{font-size:8px}.custom input{width:84px;font-size:9px;padding:3px}.custom span{font-size:8px}.tools{top:auto;bottom:calc(70px + var(--safe-bottom))}.tools #openMenu{width:50px;height:50px;border-radius:50%}.actions{z-index:70}.formGrid{grid-template-columns:1fr}dialog{padding:34px 18px}}
+@media(max-width:380px){.config>section{grid-template-columns:44px minmax(0,1fr) 82px}.swatch-wrap{flex-basis:52px;width:52px}.custom input{width:72px}}
+/* Dynamic menu placement based on the shorter-side 2/3 rule. */
+#app.menu-bottom #stage{inset:0 0 var(--sheet) 0}
+#app.menu-bottom.menu-closed #stage{inset:0}
+#app.menu-bottom #menu{
+  top:auto;
+  right:0;
+  bottom:0;
+  left:0;
+  width:100vw;
+  max-width:100vw;
+  height:var(--sheet);
+  max-height:50dvh;
+  border-radius:18px 18px 0 0;
+  box-shadow:0 -6px 20px #0003;
+  transform:translateY(0);
+}
+#app.menu-bottom #menu.closed{transform:translateY(100%)}
+#app.menu-bottom #menu header{border-radius:18px 18px 0 0;padding-top:15px}
+#app.menu-bottom .grabber{display:block;position:absolute;top:5px;left:50%;width:42px;height:4px;transform:translateX(-50%);border-radius:4px;background:#bbb}
+#app.menu-bottom .tools{right:var(--safe-right)}
+#app.menu-bottom .actions{right:12px;left:12px;width:auto}
+
+/* On narrow devices, side mode remains usable while JavaScript evaluates it. */
+@media(max-width:600px){
+  #stage{inset:0 min(360px,88vw) 0 0}
+  #app.menu-closed #stage{inset:0}
+  #menu{top:0;right:0;bottom:auto;left:auto;width:min(360px,88vw);height:100dvh;max-height:none;border-radius:0;transform:translateX(0)}
+  #menu.closed{transform:translateX(100%)}
+  #menu header{border-radius:0;padding-top:10px}
+  .grabber{display:none}
+  .tools{top:var(--safe-top);right:var(--safe-right);bottom:auto}
+  #app.menu-bottom .tools{top:auto;bottom:calc(70px + var(--safe-bottom))}
+}
+/* Restored approved order form. Scoped to orderDialog so menu behaviour is untouched. */
+#orderDialog.order-dialog{width:min(1360px,94vw);max-width:none;max-height:94dvh;margin:auto;padding:0;border:0;border-radius:22px;background:transparent;overflow:auto}
+#orderDialog.order-dialog::backdrop{background:rgba(238,238,238,.58);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+#orderDialog .order-layout{display:grid;grid-template-columns:minmax(580px,795px) minmax(330px,500px);gap:50px;align-items:stretch;min-height:min(780px,90dvh)}
+#orderDialog .inquiry-card{position:relative;padding:46px;background:rgba(255,255,255,.72);border-radius:22px;box-shadow:0 8px 30px rgba(0,0,0,.05)}
+#orderDialog .order-close{position:absolute;right:18px;top:10px;border:0;background:transparent;color:#888;font-size:30px}
+#orderDialog .form-row{display:grid;gap:20px;margin-bottom:22px}
+#orderDialog .form-row.three{grid-template-columns:repeat(3,1fr)}
+#orderDialog .form-row.two{grid-template-columns:repeat(2,1fr)}
+#orderDialog label{display:grid;gap:9px;font-size:14px;letter-spacing:1px;color:#666}
+#orderDialog input,#orderDialog textarea,#orderDialog select{width:100%;border:1px solid rgba(190,190,190,.58);border-radius:6px;background:rgba(255,255,255,.62);padding:14px 16px;font:16px Arial,sans-serif;color:#333}
+#orderDialog input[readonly]{font-weight:600;background:rgba(255,255,255,.48)}
+#orderDialog .message-label{margin-top:20px}
+#orderDialog textarea{height:138px;resize:vertical}
+#orderDialog .add-more{margin:-3px 0 2px 16px;border:0;background:transparent;color:var(--red);font-weight:600}
+#orderDialog .send{width:100%;margin-top:28px;padding:16px;border:0;border-radius:3px;background:var(--red);color:#fff;font-size:17px;font-weight:700}
+#orderDialog .contact-panel{display:flex;flex-direction:column;justify-content:space-between;min-height:100%;padding:30px 0;font-size:18px;line-height:1.55;color:#111}
+#orderDialog .contact-panel .red,#orderDialog .contact-panel a{color:var(--red);text-decoration:none}
+#orderDialog .contact-panel p{margin:28px 0}
+#orderDialog .back-product{width:100%;margin-top:auto;padding:16px;border:1px solid #aaa;background:rgba(225,225,225,.46);font-size:17px;font-weight:700}
+#orderDialog .additional-product{margin-top:14px;padding:14px;border:1px solid #ddd;border-radius:8px;background:rgba(255,255,255,.28)}
+#orderDialog .additional-main{display:grid;grid-template-columns:1fr 130px 32px;gap:10px;align-items:end}
+#orderDialog .additional-main button{height:46px;border:0;background:transparent;color:var(--red);font-size:23px}
+#orderDialog .additional-colours{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:14px}
+#orderDialog .additional-colours[hidden]{display:none}
+@media(max-width:1000px){#orderDialog.order-dialog{width:min(820px,94vw)}#orderDialog .order-layout{grid-template-columns:1fr;gap:0;min-height:0}#orderDialog .contact-panel{min-height:300px;padding:24px 30px 30px}#orderDialog .form-row.three{grid-template-columns:1fr 1fr}#orderDialog .form-row.three label:last-child{grid-column:1/-1}}
+@media(max-width:620px){#orderDialog.order-dialog{width:94vw;max-height:96dvh;border-radius:14px}#orderDialog .inquiry-card{padding:40px 18px 24px;border-radius:14px}#orderDialog .form-row.three,#orderDialog .form-row.two,#orderDialog .additional-colours{grid-template-columns:1fr}#orderDialog .form-row.three label:last-child{grid-column:auto}#orderDialog .contact-panel{min-height:250px;padding:18px 12px}#orderDialog .additional-main{grid-template-columns:1fr 90px 28px}}
+/* Final menu-state corrections. These rules only affect menu geometry and toolbar shifting. */
+#app.menu-closed #stage,
+#app.menu-bottom.menu-closed #stage{
+  inset:0!important;
+}
+#app.menu-closed .tools{
+  right:var(--safe-right)!important;
+}
+#app:not(.menu-closed):not(.menu-bottom) .tools{
+  right:calc(var(--panel) + var(--safe-right))!important;
+}
+#app.menu-bottom .tools{
+  right:var(--safe-right)!important;
+}
+#app.menu-closed .actions{
+  right:16px;
+  width:min(360px,calc(100vw - 32px));
+}
+#app:not(.menu-closed):not(.menu-bottom) .actions{
+  right:16px;
+  width:calc(var(--panel) - 32px);
+}
+#app.menu-bottom .actions{
+  right:12px;
+  left:12px;
+  width:auto;
+}
+/* Keep menu transitions confined to their correct axis. */
+#app:not(.menu-bottom) #menu.closed{transform:translateX(100%)!important}
+#app.menu-bottom #menu.closed{transform:translateY(100%)!important}
+
+/* Back to Product restored directly below the catalog message, at its original compact size. */
+#orderDialog .contact-panel{
+  display:block;
+  min-height:0;
+}
+#orderDialog .back-product{
+  display:inline-block;
+  width:auto;
+  min-width:190px;
+  margin:0;
+  padding:11px 18px;
+  font-size:15px;
+  line-height:1.2;
+}
+@media(max-width:620px){
+  #orderDialog .back-product{min-width:0;padding:10px 15px;font-size:14px}
+}
+/* Position-only correction: keep Back to Product directly below the catalog text. */
+#orderDialog .contact-panel .contact-content{
+  display:block;
+}
+#orderDialog .contact-panel .contact-content p:last-child{
+  margin-bottom:10px;
+}
+#orderDialog .contact-panel .back-product{
+  display:block;
+  width:max-content;
+  margin:0;
+}
+/* Position-only correction: the existing Back to Product button now follows
+   the catalog paragraph inside contact-content. Its approved size is preserved. */
+#orderDialog .contact-content .back-product{
+  display:block;
+  width:max-content;
+  margin:10px 0 0;
+}
+/* Final position-only correction. The shared .dialogClose rule was making this
+   button absolute. Restore normal document flow below the catalog paragraph. */
+#orderDialog .contact-content .back-product.dialogClose{
+  position:static!important;
+  inset:auto!important;
+  display:block!important;
+  width:max-content!important;
+  margin:10px 0 0!important;
+}
+/* Interaction-only fix: model switch buttons remain above the swipe surface. */
+#menu nav{position:relative;z-index:4;pointer-events:auto}
+#menu nav .product{position:relative;z-index:5;pointer-events:auto;touch-action:manipulation}
+#menu .grabber{pointer-events:none}
+/* Visual-only change: gradient wheel for the existing background selector. */
+.background input#bgColour{
+  -webkit-appearance:none;
+  appearance:none;
+  background:radial-gradient(circle at 50% 50%,rgba(255,255,255,.74) 0%,rgba(255,255,255,.18) 42%,rgba(255,255,255,0) 66%),conic-gradient(from 0deg,#ff4d4d,#ffd84d,#68db68,#54dada,#5b74ef,#cb65de,#ff4d8d,#ff4d4d);
+  border:0;
+  border-radius:50%;
+  overflow:hidden;
+}
+.background input#bgColour::-webkit-color-swatch-wrapper{padding:0}
+.background input#bgColour::-webkit-color-swatch{border:0;border-radius:50%;background:transparent!important;opacity:0}
+.background input#bgColour::-moz-color-swatch{border:0;border-radius:50%;background:transparent!important;opacity:0}
+/* Custom RAL selector styled to match the supplied reference image.
+   This block changes only the layout of the existing .custom controls. */
+.custom{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  gap:7px;
+  margin:18px 0;
+  text-align:center;
+}
+.custom strong{
+  order:1;
+  display:block;
+  min-height:0;
+  font-size:10px;
+  line-height:1.05;
+}
+.custom button{
+  order:2;
+  width:44px;
+  height:44px;
+  margin:0;
+  padding:0;
+  border:1px solid #aaa;
+  border-radius:50%;
+  background-color:transparent;
+  background-image:none!important;
+  box-shadow:1px 3px 6px #0002;
+}
+.custom input{
+  order:3;
+  width:86px;
+  max-width:86px;
+  height:18px;
+  margin:0;
+  padding:2px 6px;
+  border:0;
+  border-radius:10px;
+  background:#eee;
+  color:#777;
+  text-align:center;
+  font-size:9px;
+  line-height:14px;
+}
+.custom span{
+  order:4;
+  min-height:10px;
+  font-size:9px;
+  line-height:1;
+}
+@media(max-width:600px){
+  .custom{
+    gap:4px;
+    margin:0;
+    padding:3px;
+  }
+  .custom strong{font-size:8px;line-height:1.05}
+  .custom button{width:40px;height:40px}
+  .custom input{width:84px;max-width:84px;height:17px;font-size:8px;padding:2px 5px}
+  .custom span{font-size:8px}
+}
+@media(max-width:380px){
+  .custom input{width:72px;max-width:72px}
+}
+/* Custom RAL layout correction only.
+   Keep selector circles equal to the standard swatches, and place each code/name
+   block immediately above the Place an order controls. */
+.custom button{
+  width:58px;
+  height:58px;
+}
+.config{
+  padding-bottom:82px;
+}
+.config>section{
+  position:relative;
+}
+.custom input,
+.custom span{
+  position:absolute;
+  z-index:3;
+  bottom:18px;
+}
+.custom input{
+  width:128px;
+  max-width:calc(100% - 16px);
+  height:22px;
+  left:50%;
+  transform:translateX(-50%);
+}
+.custom span{
+  bottom:4px;
+  left:4px;
+  right:4px;
+  min-height:10px;
+  text-align:center;
+}
+@media(max-width:600px){
+  .custom button{
+    width:40px;
+    height:40px;
+  }
+  .config{
+    padding-bottom:66px;
+  }
+  .custom input{
+    bottom:17px;
+    width:84px;
+    max-width:calc(100% - 8px);
+    height:17px;
+  }
+  .custom span{
+    bottom:3px;
+  }
+}
+@media(max-width:380px){
+  .custom input{
+    width:72px;
+  }
+}
+/* Final custom RAL flow correction.
+   The code input stays directly below the custom colour circle, followed by
+   the colour name. The complete group remains above Place an order. */
+.custom{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+}
+.custom button{
+  order:2;
+}
+.custom input{
+  order:3;
+  position:static!important;
+  left:auto!important;
+  right:auto!important;
+  bottom:auto!important;
+  transform:none!important;
+  margin-top:0!important;
+}
+.custom span{
+  order:4;
+  position:static!important;
+  left:auto!important;
+  right:auto!important;
+  bottom:auto!important;
+  width:100%;
+  margin-top:0!important;
+  text-align:center;
+}
+/* Font-size-only correction: custom RAL code and colour name match default colour names. */
+.custom input,
+.custom span{
+  font-size:12px;
+}
+@media(max-width:600px){
+  .custom input,
+  .custom span{
+    font-size:8px;
+  }
+}
+/* Mobile-only custom RAL entry bubble. Desktop layout and styling are unchanged. */
+.ral-mobile-bubble{display:none}
+@media(max-width:600px){
+  #bodyRal,#secondRal{font-size:16px}
+  .ral-mobile-bubble{
+    position:fixed;
+    left:50%;
+    bottom:calc(var(--safe-bottom) + 78px);
+    z-index:3000;
+    width:min(250px,calc(100vw - 30px));
+    padding:12px 42px 12px 12px;
+    transform:translateX(-50%);
+    border:1px solid rgba(150,150,150,.55);
+    border-radius:18px;
+    background:rgba(255,255,255,.96);
+    box-shadow:0 8px 24px rgba(0,0,0,.24);
+  }
+  .ral-mobile-bubble:not([hidden]){display:block}
+  .ral-mobile-bubble input{
+    display:block;
+    width:100%;
+    height:42px;
+    padding:8px 44px 8px 12px;
+    border:1px solid #ccc;
+    border-radius:12px;
+    background:#eee;
+    color:#666;
+    font-size:16px;
+    text-align:center;
+  }
+  #ralMobileClose{
+    position:absolute;
+    top:1px;
+    right:8px;
+    width:30px;
+    height:30px;
+    padding:0;
+    border:0;
+    background:transparent;
+    color:#777;
+    font-size:24px;
+  }
+  #ralMobileApply{
+    position:absolute;
+    right:48px;
+    bottom:16px;
+    width:32px;
+    height:32px;
+    padding:0;
+    border:0;
+    border-radius:50%;
+    background:#777;
+    color:#fff;
+    font-size:17px;
+  }
+}
